@@ -1,5 +1,7 @@
 package net.slipp.db;
 
+
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,5 +13,9 @@ public class Database {
 	public static void addUser(User user) {
 		System.out.println("user : "+user);
 		users.put(user.getUserId(), user);
+	}
+
+	public static User findByUserId(String userId) {
+		return users.get(userId);
 	}
 }
