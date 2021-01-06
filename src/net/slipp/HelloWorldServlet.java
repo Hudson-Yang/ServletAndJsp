@@ -1,6 +1,7 @@
 package net.slipp;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,8 +14,14 @@ public class HelloWorldServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String name = req.getParameter("name");
-		System.out.println("Request Scccess!");
-		resp.getWriter().print(name + " Hello World!! ");
+		PrintWriter out = resp.getWriter();
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<title>sliff</title>");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("<h1>hello</h1>");
+		out.println("</body>");
+		out.println("</html>");
 	}
 }
