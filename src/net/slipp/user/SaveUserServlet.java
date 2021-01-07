@@ -1,6 +1,7 @@
 package net.slipp.user;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +22,11 @@ public class SaveUserServlet extends HttpServlet{
 		String email = request.getParameter("email");
 
 		User user = new User(userId, password, name, email);
-		Database.addUser(user);
+		UserDAO userDAO = new UserDAO();
+		try {
+			userDAO.addUser(user);
+		} catch (SQLException e) {
+		}
 		
 		response.sendRedirect("/");
 		

@@ -5,8 +5,8 @@ import org.junit.Test;
 
 import net.slipp.db.Database;
 
-public class UserTset {
-	public static User TEST_USER = new User("userId","password", "name", "asdasd@nasd.com");
+public class UserTest {
+	public static User TEST_USER = new User("userId","password", "name", "imyhs@naver.com");
 	
 	@Test
 	public void matchPassword() {
@@ -20,7 +20,7 @@ public class UserTset {
 
 	@Test
 	public void login() throws Exception{
-		User user = UserTset.TEST_USER;
+		User user = UserTest.TEST_USER;
 		Database.addUser(user);
 		assertTrue(User.login(TEST_USER.getUserId(), TEST_USER.getPassword()));
 	}
@@ -30,9 +30,9 @@ public class UserTset {
 		User.login("userId2", TEST_USER.getPassword());
 	}
 	
-	@Test(expected=UserNotFoundException.class)
-	public void loginWhenPasswordMissmatch() throws Exception{
-		User user = UserTset.TEST_USER;
+	@Test(expected=PasswordMismatchException.class)
+	public void loginWhenPasswordMismatch() throws Exception{
+		User user = UserTest.TEST_USER;
 		Database.addUser(user);
 		User.login(TEST_USER.getUserId(), "password2");
 	}

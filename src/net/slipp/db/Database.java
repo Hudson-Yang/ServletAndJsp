@@ -1,7 +1,5 @@
 package net.slipp.db;
 
-
-
 import java.util.HashMap;
 import java.util.Map;
 
