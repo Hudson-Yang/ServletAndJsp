@@ -1,17 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="net.slipp.user.*" %>
-<%@page import="net.slipp.db.*" %>
+<%@ page import="net.slipp.user.User" %>
+<%@ page import="net.slipp.db.Database" %>
 <%
 	String userId = request.getParameter("userId");
 	String password = request.getParameter("password");
 	
-	User user = Database.findByUserId(userId);
-	if(user == null){
-		// 대충 사용자가 존재하지 않는다는 로직
+	if(User.login(userId, password)){
+		session.setAttribute("userId", userId);
 	}
 	
-	if(password.equals(user.getPassword())){
-		// 대충 로그인 처리하는 로직
-	}
+	response.sendRedirect("/");
 %>
