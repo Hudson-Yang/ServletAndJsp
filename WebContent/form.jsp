@@ -14,7 +14,6 @@
 				<div class="page-header">
 					<h1>회원가입</h1>
 				</div>
-			
 				
 				<form class="form-horizontal" action="/users/save" method="post">
 					<div class="control-group">

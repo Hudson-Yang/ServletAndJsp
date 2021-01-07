@@ -8,6 +8,17 @@ public class User {
 	private String name;
 	private String email;
 
+	public User(String userId, String password, String name, String email) {
+		super();
+		this.userId = userId;
+		this.password = password;
+		this.name = name;
+		this.email = email;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	
 	public String getPassword() {
 		return password;
 	}
@@ -20,22 +31,8 @@ public class User {
 		return email;
 	}
 
-	public User(String userId, String password, String name, String email) {
-		super();
-		this.userId = userId;
-		this.password = password;
-		this.name = name;
-		this.email = email;
-	}
 	
-	public String getUserId() {
-		return userId;
-	}
 
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email + "]";
-	}
 
 	public boolean matchPassword(String newPassword) {
 		return this.password.equals(newPassword);
@@ -54,4 +51,8 @@ public class User {
 		return true;
 	}
 	
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email + "]";
+	}
 }
