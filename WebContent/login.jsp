@@ -13,18 +13,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12">
-				<section id="typography">
 				<div class="page-header">
 					<h1>로그인</h1>
 				</div>
 				
-				<form class="form-horizontal" action="/users/login" method="post">
-					<c:if test="${not empty errorMessage}">
+				<form class="form-horizontal" action="/login_action.jsp" method="post">
+					<%
+					Object errorMessage = request.getAttribute("errorMessage");
+					if (errorMessage != null){
+					%>
 					<div class="control-group">
-						<label class="error">${errorMessage}</label>
+						<label class="error"> <%= errorMessage %> </label>
 					</div>
-					</c:if>
-					
+					<%
+					}
+					%>
 					<div class="control-group">
 						<label class="control-label" for="userId">사용자 아이디</label>
 						<div class="controls">
@@ -34,7 +37,7 @@
 					<div class="control-group">
 						<label class="control-label" for="password">비밀번호</label>
 						<div class="controls">
-							<input type="password" id="password" name="password" placeholder="">
+							<input type="password" id="password" name="password">
 						</div>
 					</div>
 					<div class="control-group">

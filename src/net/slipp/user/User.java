@@ -41,10 +41,10 @@ public class User {
 		return this.password.equals(newPassword);
 	}
 
-	public static boolean login(String userId, String password) throws UserNotFountException, PasswordMismatchException {
+	public static boolean login(String userId, String password) throws UserNotFoundException, PasswordMismatchException {
 		User user = Database.findByUserId(userId);
 		if ( user == null) {
-			throw new UserNotFountException();
+			throw new UserNotFoundException();
 		}
 		
 		if (user.matchPassword(password)) {

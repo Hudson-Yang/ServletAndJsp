@@ -25,12 +25,12 @@ public class UserTset {
 		assertTrue(User.login(TEST_USER.getUserId(), TEST_USER.getPassword()));
 	}
 	
-	@Test(expected=UserNotFountException.class)
+	@Test(expected=UserNotFoundException.class)
 	public void loginWhenNotExistedUser() throws Exception{
 		User.login("userId2", TEST_USER.getPassword());
 	}
 	
-	@Test(expected=UserNotFountException.class)
+	@Test(expected=UserNotFoundException.class)
 	public void loginWhenPasswordMissmatch() throws Exception{
 		User user = UserTset.TEST_USER;
 		Database.addUser(user);
