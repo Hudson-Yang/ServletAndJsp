@@ -12,5 +12,5 @@
 	<classpathentry kind="lib" path="lib/tomcat-embed-programmatic.jar"/>
 	<classpathentry kind="lib" path="lib/tomcat-embed-websocket.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="output" path="webapp/WEB-INF/classes"/>
+	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
