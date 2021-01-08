@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 public class CreateUserServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-			
+		
+		// 4자 이상, 12자 이하. 영문자/숫자만 허용
 		String userId = request.getParameter("userId");
 		String password = request.getParameter("password");
+		// 2자 이상, 10자 이하.
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 
