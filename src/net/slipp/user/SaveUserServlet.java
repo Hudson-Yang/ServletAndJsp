@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.slipp.db.Database;
 
 @WebServlet("/users/save")
 public class SaveUserServlet extends HttpServlet{

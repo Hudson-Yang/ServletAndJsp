@@ -2,6 +2,7 @@ package net.slipp.user;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.sql.Connection;
 
@@ -15,6 +16,7 @@ public class UserDAOTest {
 	@Before
 	public void setup() {
 		userDao = new UserDAO();
+		
 	}
 
 	@Test
@@ -24,14 +26,22 @@ public class UserDAOTest {
 	}
 	
 	@Test
-	public void addUser() throws Exception {
+	public void crud() throws Exception {
+		User user = UserTest.TEST_USER;
+		userDao.removeUser(user.getUserId());
 		userDao.addUser(UserTest.TEST_USER);
+		
+		User dbUser = userDao.findByUserId("userId");
+		assertEquals(user, dbUser);
 	}
 	
 	@Test
-	public void findByUserId() throws Exception {
-		User user = userDao.findByUserId("userId");
-		assertEquals(UserTest.TEST_USER, user);
+	public void zohoi() throws Exception{
+		User user = UserTest.TEST_USER;
+		userDao.removeUser(user.getUserId());
+		
+		User dbUser = userDao.findByUserId("userId");
+		assertNull(dbUser);
 	}
 
 }
