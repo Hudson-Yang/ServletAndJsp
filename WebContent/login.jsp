@@ -18,7 +18,7 @@
 				</div>
 				
 				<form class="form-horizontal" action="/users/login" method="post">
-					<c:if test="$not empty errorMessage}">
+					<c:if test="${not empty errorMessage}">
 					<div class="control-group">
 						<label class="error"> ${errorMessage} </label>
 					</div>
