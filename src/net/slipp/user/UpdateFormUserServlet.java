@@ -11,9 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 @WebServlet("/users/updateForm")
-public class UpdateFormUserServlet extends HttpServlet {
-	
+public class UpdateFormUserServlet extends HttpServlet { 
+	private static final Logger logger = LoggerFactory.getLogger(UpdateFormUserServlet.class);
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
@@ -23,7 +27,7 @@ public class UpdateFormUserServlet extends HttpServlet {
 			return;
 		}
 		
-		System.out.println("User Id : " + userId);
+		logger.debug("User Id : {}" , userId);
 		UserDAO userDao = new UserDAO();
 		try {
 			User user = userDao.findByUserId(userId);

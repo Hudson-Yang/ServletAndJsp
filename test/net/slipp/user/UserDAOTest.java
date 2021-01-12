@@ -14,15 +14,8 @@ public class UserDAOTest {
 	private UserDAO userDao;
 	
 	@Before
-	public void setup() {
+	public void setup() { 
 		userDao = new UserDAO();
-		
-	}
-
-	@Test
-	public void connection() {
-		Connection con = userDao.getConnection();
-		assertNotNull(con);
 	}
 	
 	@Test
