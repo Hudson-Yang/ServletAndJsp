@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import net.slipp.support.jdbc.PrepareStatementSetter;
-import net.slipp.support.jdbc.RowMapper;
-import net.slipp.support.jdbc.jdbcTemplate;
+import core.jdbc.PrepareStatementSetter;
+import core.jdbc.RowMapper;
+import core.jdbc.jdbcTemplate;
 
 public class UserDAO {
 	public void addUser(User user)  {
