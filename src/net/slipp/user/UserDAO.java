@@ -19,42 +19,30 @@ public class UserDAO {
 	}
 
 	public User findByUserId(String userId) {
-		RowMapper<User> rm = new RowMapper<User>() {
-			@Override
-			public User mapRow(ResultSet rs) throws SQLException {
-				return new User(rs.getString("userId"), rs.getString("password"), rs.getString("name"),
+		RowMapper<User> rm = rs -> 
+				new User(rs.getString("userId"), rs.getString("password"), rs.getString("name"),
 						rs.getString("email"));
-			}
-		};
-		
 		jdbcTemplate template = new jdbcTemplate();
 		String sql = "select * from users where userId = ?";
 		return template.executeQuery(sql, rm, userId);
 	}
 
 	public void removeUser(String userId) {
-
 		jdbcTemplate template = new jdbcTemplate();
 		String sql = "delete from users where userId = ?";
 		template.executeUpdate(sql, userId);
 	}
 
 	public void updateUser(User user) {
-		
 		jdbcTemplate template = new jdbcTemplate();
 		String sql = "update users set password = ?, name = ?, email = ? where userId = ?";
 		template.executeUpdate(sql, user.getPassword(), user.getName(), user.getEmail(), user.getUserId());
 	}
 
 	public List<User> findUsers() throws SQLException {
-		RowMapper<User> rm = new RowMapper<User>() {
-			@Override
-			public User mapRow(ResultSet rs) throws SQLException {
-				return new User(rs.getString("userId"), rs.getString("password"), rs.getString("name"),
+		RowMapper<User> rm = rs ->
+				new User(rs.getString("userId"), rs.getString("password"), rs.getString("name"),
 						rs.getString("email"));
-			}
-		};
-		
 		jdbcTemplate template = new jdbcTemplate();
 		String sql = "select * from users";
 		return template.list(sql, rm);
